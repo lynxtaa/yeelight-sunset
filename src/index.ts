@@ -5,11 +5,12 @@ import { getLight } from './getLight.js'
 import { getSunsetTime } from './getSunsetTime.js'
 import { schedulePromise } from './schedulePromise.js'
 
+let mainTask: ScheduledTask
 let turnOnLightTask: ScheduledTask
 
 console.log('Service is running...')
 
-schedulePromise('0 10 * * *', async () => {
+async function runTask() {
 	const date = await getSunsetTime({
 		lat: process.env.LATITUDE,
 		lng: process.env.LONGITUDE,
@@ -28,5 +29,11 @@ schedulePromise('0 10 * * *', async () => {
 		light.exit()
 	})
 
+	if (!mainTask) {
+		mainTask = schedulePromise('0 10 * * *', runTask)
+	}
+
 	console.log(`Set schedule for ${hours}:${minutes} UTC`)
-})
+}
+
+await runTask()
