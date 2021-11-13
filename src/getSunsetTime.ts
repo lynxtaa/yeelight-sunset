@@ -19,7 +19,7 @@ export async function getSunsetTime({
 }): Promise<Date> {
 	const json = await got('https://api.sunrise-sunset.org/json', {
 		searchParams: { lat, lng, formatted: '0' },
-		timeout: 30000,
+		timeout: 30_000,
 		retry: 5,
 	}).json()
 

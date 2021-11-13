@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "description": "Enables Yeelight bulb at sunset by location",
   "author": "Alex Kondratyuk <lynxtaa@gmail.com>",
-  "main": "yeelight.js",
+  "private": true,
   "type": "module",
   "prettier": "@lynxtaa/prettier-config",
   "simple-git-hooks": {

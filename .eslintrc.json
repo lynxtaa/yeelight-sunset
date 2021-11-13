@@ -24,8 +24,6 @@
 			"warn",
 			{ "alphabetize": { "order": "asc" }, "newlines-between": "always" }
 		],
-		// https://github.com/import-js/eslint-plugin-import/issues/1868
-		"import/no-unresolved": "off",
 		"import/newline-after-import": "warn",
 		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/prefer-optional-chain": "warn",
