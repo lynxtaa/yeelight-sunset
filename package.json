@@ -1,6 +1,6 @@
 {
   "name": "yeelight-sunset",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Enables Yeelight bulb at sunset by location",
   "author": "Alex Kondratyuk <lynxtaa@gmail.com>",
   "main": "yeelight.js",
