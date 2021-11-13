@@ -1,0 +1,39 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint", "import"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript"
+	],
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"env": {
+		"es6": true,
+		"jest": true
+	},
+	"rules": {
+		"no-mixed-spaces-and-tabs": "off",
+		"no-console": "warn",
+		"import/order": [
+			"warn",
+			{ "alphabetize": { "order": "asc" }, "newlines-between": "always" }
+		],
+		// https://github.com/import-js/eslint-plugin-import/issues/1868
+		"import/no-unresolved": "off",
+		"import/newline-after-import": "warn",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/prefer-optional-chain": "warn",
+		"@typescript-eslint/explicit-module-boundary-types": [
+			"warn",
+			{ "allowArgumentsExplicitlyTypedAsAny": true }
+		],
+		"@typescript-eslint/restrict-template-expressions": "off",
+		"@typescript-eslint/no-non-null-assertion": "off"
+	}
+}
