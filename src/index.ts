@@ -7,6 +7,8 @@ import { schedulePromise } from './schedulePromise.js'
 
 let turnOnLightTask: ScheduledTask
 
+console.log('Service is running...')
+
 schedulePromise('0 10 * * *', async () => {
 	const date = await getSunsetTime({
 		lat: process.env.LATITUDE,
