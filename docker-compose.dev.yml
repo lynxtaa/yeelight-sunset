@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  yeelight-sunset:
+    build: .
+    environment:
+      LATITUDE: 123.123
+      LONGITUDE: 123.123
+    networks:
+      - outside
+
+networks:
+  outside:
+    name: 'host'
+    # Required for lightbulb discovery
+    external: true
