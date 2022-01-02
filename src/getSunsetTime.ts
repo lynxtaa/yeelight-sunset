@@ -1,15 +1,6 @@
-import got from 'got'
-import { z } from 'zod'
+import SuncCalc from 'suncalc'
 
-const responseSchema = z.object({
-	status: z.literal('OK'),
-	results: z.object({
-		sunrise: z.string(),
-		sunset: z.string(),
-		day_length: z.number(),
-	}),
-})
-
+// eslint-disable-next-line @typescript-eslint/require-await
 export async function getSunsetTime({
 	lat,
 	lng,
@@ -17,13 +8,7 @@ export async function getSunsetTime({
 	lat: string
 	lng: string
 }): Promise<Date> {
-	const json = await got('https://api.sunrise-sunset.org/json', {
-		searchParams: { lat, lng, formatted: '0' },
-		timeout: 30_000,
-		retry: 5,
-	}).json()
+	const times = SuncCalc.getTimes(new Date(), Number(lat), Number(lng))
 
-	const { results } = responseSchema.parse(json)
-
-	return new Date(results.sunset)
+	return times.sunsetStart
 }
